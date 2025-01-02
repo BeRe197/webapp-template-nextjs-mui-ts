@@ -1,0 +1,57 @@
+"use client";
+import {Source_Sans_3} from "next/font/google";
+import {createTheme, PaletteMode} from "@mui/material/styles";
+
+const fontStyle = Source_Sans_3({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const colors = {
+    primary: {
+        main: "#E30039",
+        dark: "#7d3245",
+    },
+    secondary: {
+        main: "#68AE63",
+        dark: "#3c473b",
+    },
+    error: {
+        main: "#DD5A29",
+        dark: "#785447",
+    },
+    warning: {
+        main: "#ffb800",
+    },
+    white: {
+        main: "#fff",
+    },
+    text: {
+        primary: "rgba(0, 0, 0, 0.87)",
+        secondary: "rgba(0, 0, 0, 0.6)",
+        disabled: "rgba(0, 0, 0, 0.38)",
+    },
+    background: {
+        paper: "#fff",
+        default: "#f4f6f8",
+        footer: "#263238",
+    }
+};
+
+const theme = (mode: PaletteMode) => createTheme({
+    palette: {
+        mode: mode || "light",
+        ...colors,
+    },
+    typography: {
+        fontFamily: fontStyle.style.fontFamily,
+        fontSize: 14,
+    },
+    shape: {
+        borderRadius: 20,
+    },
+    spacing: 8,
+});
+
+export default theme;
