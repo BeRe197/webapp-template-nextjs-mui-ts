@@ -2,6 +2,22 @@
 import {Source_Sans_3} from "next/font/google";
 import {createTheme, PaletteMode} from "@mui/material/styles";
 
+// Augment the palette to include custom color
+declare module '@mui/material/styles' {
+    interface Palette {
+        header: {
+            main: string;
+            scroll: string;
+            color: string;
+            scrollColor: string;
+        };
+    }
+
+    interface PaletteOptions {
+        header?: PaletteOptions['primary'];
+    }
+}
+
 const fontStyle = Source_Sans_3({
     weight: ["300", "400", "500", "700"],
     subsets: ["latin"],
@@ -36,7 +52,13 @@ const colors = {
         paper: "#fff",
         default: "#f4f6f8",
         footer: "#263238",
-    }
+    },
+    header: {
+        main: "rgba(255,255,255,0)",
+        scroll: "#fff",
+        color: "#fff",
+        scrollColor: "#000",
+    },
 };
 
 const theme = (mode: PaletteMode) => createTheme({
