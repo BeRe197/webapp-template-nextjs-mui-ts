@@ -96,6 +96,9 @@ const HeroSection = () => {
                     position: 'relative',
                     zIndex: 1,
                     color: 'white',
+                    '& .MuiContainer-root': {
+                        padding: 'inherit',
+                    },
                 }}
             >
                 <Typography

@@ -4,7 +4,7 @@ const containerFluid = {
     width: "100%",
 };
 const container = {
-    "& > main": {
+    "& > main, .MuiContainer-root": {
         ...containerFluid,
         "@media (min-width: 576px)": {
             maxWidth: "540px",
