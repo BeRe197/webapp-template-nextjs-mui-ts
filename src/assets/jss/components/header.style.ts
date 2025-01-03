@@ -1,4 +1,4 @@
-import { container } from "@/assets/jss/global.style";
+import {container} from "@/assets/jss/global.style";
 
 const headerStyle = {
     appBar: {
@@ -8,7 +8,6 @@ const headerStyle = {
         alignItems: "center",
         flexFlow: "row nowrap",
         justifyContent: "flex-start",
-        zIndex: "unset",
     },
     flex: {
         flex: 1,
