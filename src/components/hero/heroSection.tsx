@@ -10,6 +10,7 @@ import {
     Container
 } from '@mui/material';
 import {KeyboardArrowLeft, KeyboardArrowRight} from '@mui/icons-material';
+import IconButton from "@/components/button/iconButton";
 
 interface HeroPage {
     title: string;
@@ -149,39 +150,49 @@ const HeroSection = () => {
                 }}
             >
                 <MobileStepper
+                    variant="dots"
                     steps={maxSteps}
                     position="static"
                     activeStep={activeStep}
                     sx={{
                         backgroundColor: 'transparent',
+                        '& .MuiMobileStepper-dot': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        },
+                        '& .MuiMobileStepper-dotActive': {
+                            backgroundColor: 'primary.main',
+                        },
+                        '& .Mui-disabled': {
+                            color: 'rgba(255, 255, 255, 0.5)',
+                        },
                     }}
                     nextButton={
-                        <Button
+                        <IconButton
                             size="small"
                             onClick={handleNext}
                             disabled={activeStep === maxSteps - 1}
-                            sx={{color: 'white'}}
+                            color={"primary"}
                         >
                             {theme.direction === 'rtl' ? (
                                 <KeyboardArrowLeft/>
                             ) : (
                                 <KeyboardArrowRight/>
                             )}
-                        </Button>
+                        </IconButton>
                     }
                     backButton={
-                        <Button
+                        <IconButton
                             size="small"
                             onClick={handleBack}
                             disabled={activeStep === 0}
-                            sx={{color: 'white'}}
+                            color={"primary"}
                         >
                             {theme.direction === 'rtl' ? (
                                 <KeyboardArrowRight/>
                             ) : (
                                 <KeyboardArrowLeft/>
                             )}
-                        </Button>
+                        </IconButton>
                     }
                 />
             </Paper>
