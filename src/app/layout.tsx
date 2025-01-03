@@ -3,6 +3,8 @@ import {ReactNode} from "react";
 //mui
 import {AppRouterCacheProvider} from "@mui/material-nextjs/v14-appRouter";
 import Box from "@mui/material/Box";
+//components
+import BackToTop from "@/components/button/scrollToTop";
 //provider
 import ThemeContextProvider from "@/provider/theme/themeprovider";
 //style
@@ -21,9 +23,11 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
         <body>
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
             <ThemeContextProvider>
+                <Box component={"div"} id="back-to-top-anchor"/>
                 <Box component={"div"} sx={container}>
                     {children}
                 </Box>
+                <BackToTop/>
             </ThemeContextProvider>
         </AppRouterCacheProvider>
         </body>
