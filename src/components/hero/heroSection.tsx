@@ -7,7 +7,8 @@ import {
     MobileStepper,
     useTheme,
     Paper,
-    Container
+    Container,
+    alpha,
 } from '@mui/material';
 import {KeyboardArrowLeft, KeyboardArrowRight} from '@mui/icons-material';
 import IconButton from "@/components/button/iconButton";
@@ -160,13 +161,13 @@ const HeroSection = () => {
                     sx={{
                         backgroundColor: 'transparent',
                         '& .MuiMobileStepper-dot': {
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.3),
                         },
                         '& .MuiMobileStepper-dotActive': {
                             backgroundColor: 'primary.main',
                         },
                         '& .Mui-disabled': {
-                            color: 'rgba(255, 255, 255, 0.5)',
+                            color: (theme) => alpha(theme.palette.primary.main, 0.3),
                         },
                     }}
                     nextButton={
