@@ -1,10 +1,65 @@
 import HeroSection from "@/components/hero/heroSection";
+import GridContainer from "@/components/grid/gridContainer";
+import Widgets from "@/widgets";
+
+const intros = {
+    sections: [{
+        id: "1",
+        __typename: "Text",
+        name: "Explore Boundless Horizons",
+        text: {
+            html: "<p>Your Gateway to <b>Innovation</b>, <b>Inspiration</b>, and <b>Connection—Discover</b> ideas that transform, stories that inspire, and solutions that bring the world <b>closer together</b>.</p>",
+        },
+        emphasized: true,
+    }, {
+        id: "2",
+        __typename: "Grid",
+        items: [{
+            id: "1",
+            title: "Discover",
+            subtitle: "Explore the latest trends and insights",
+            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+        }, {
+            id: "2",
+            title: "Engage",
+            subtitle: "Connect with a global community",
+            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+        }, {
+            id: "3",
+            title: "Transform",
+            subtitle: "Unlock the power of innovation",
+            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+        }]
+    }, {
+        id: "3",
+        __typename: "TextAndImage",
+        name: "Join Our Community",
+        text: {
+            html: "<p>Connect with like-minded professionals and <b>explore</b> ideas that <b>transform</b> the world.</p>",
+        },
+        image: {
+            url: "https://cdn.pixabay.com/photo/2024/09/20/01/37/dubai-creek-9060098_1280.jpg",
+            fileName: "dubai-creek-9060098_1280.jpg"
+        },
+        button: {
+            text: "Join Now",
+            link: "/join"
+        },
+        ltr: false,
+    }]
+};
 
 export default function Home() {
     return (
         <>
             <HeroSection/>
             <main>
+                <GridContainer>
+                    {intros.sections.map((section) => {
+                        // @ts-ignore
+                        return <Widgets key={section.id} section={section}/>;
+                    })}
+                </GridContainer>
                 <h1>
                     Welcome to Your App!
                 </h1>

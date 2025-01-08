@@ -11,7 +11,10 @@ import {
     alpha,
 } from '@mui/material';
 import {KeyboardArrowLeft, KeyboardArrowRight} from '@mui/icons-material';
+// components
 import IconButton from "@/components/button/iconButton";
+// style
+import {btnAnimation} from "@/assets/jss/global.style";
 
 interface HeroPage {
     title: string;
@@ -130,10 +133,7 @@ const HeroSection = () => {
                     variant="contained"
                     size="large"
                     href={currentPage.buttonLink}
-                    sx={{
-                        width: 'fit-content',
-                        animation: 'fadeIn 0.5s ease-in 0.4s',
-                    }}
+                    sx={btnAnimation}
                 >
                     {currentPage.buttonText}
                 </Button>

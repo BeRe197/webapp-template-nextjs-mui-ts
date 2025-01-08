@@ -69,6 +69,15 @@ const theme = (mode: PaletteMode) => createTheme({
     typography: {
         fontFamily: fontStyle.style.fontFamily,
         fontSize: 14,
+        fontWeightLight: 200,
+        fontWeightRegular: 300,
+        fontWeightMedium: 400,
+        fontWeightBold: 500,
+        h2: {
+            fontSize: "2.5rem",
+            fontWeight: 300,
+            lineHeight: 1.25,
+        },
     },
     shape: {
         borderRadius: 20,

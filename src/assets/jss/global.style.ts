@@ -24,7 +24,12 @@ const container = {
         },
     },
 };
+const btnAnimation = {
+    width: 'fit-content',
+    animation: 'fadeIn 0.5s ease-in 0.4s',
+}
 
 export {
     container,
+    btnAnimation,
 };

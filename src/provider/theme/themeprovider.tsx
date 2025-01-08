@@ -1,7 +1,7 @@
 "use client"
 import {createContext, ReactNode, useMemo} from "react";
 //mui
-import {ThemeProvider} from "@mui/material/styles";
+import {PaletteMode, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 //theme
 import theme from "@/provider/theme/theme";
@@ -16,14 +16,14 @@ export const ColorModeContext = createContext({
 });
 
 export default function ThemeContextProvider({children}: Readonly<{ children: ReactNode; }>) {
-    const [mode, setMode] = useLocalStorage("themeMode", "light");
+    const [mode, setMode] = useLocalStorage<PaletteMode>("themeMode", "light");
     const colorMode = useMemo(
         () => ({
             toggleColorMode: () => {
                 setMode((prevMode: string) => (prevMode === "light" ? "dark" : "light"));
             },
         }),
-        [],
+        [setMode],
     );
 
     return (
