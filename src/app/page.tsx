@@ -46,6 +46,62 @@ const intros = {
             link: "/join"
         },
         ltr: false,
+    }, {
+        id: "4",
+        __typename: "News",
+        name: "Latest News",
+        pageInfo: {
+            pageSize: 3
+        },
+        items: [{
+            id: "1",
+            title: "Discover the Future",
+            subtitle: "Explore the latest trends and insights",
+            image: {
+                url: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            },
+            updatedAt: "2022-01-01T00:00:00Z",
+            __typename: "NewsItems",
+            shortDescription: "Explore the latest trends and insights that are shaping the future of business and technology.",
+            sections: [{
+                text: {
+                    text: "Explore the latest trends and insights that are shaping the future of business and technology."
+                }
+            }],
+            url: "/news/1"
+        }, {
+            id: "2",
+            title: "Engage with the Community",
+            subtitle: "Connect with a global community",
+            image: {
+                url: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            },
+            updatedAt: "2022-01-01T00:00:00Z",
+            __typename: "NewsItems",
+            shortDescription: "Connect with a global community and engage with like-minded professionals.",
+            sections: [{
+                text: {
+                    text: "Connect with a global community and engage with like-minded professionals."
+                }
+            }],
+            url: "/news/2"
+        }, {
+            id: "3",
+            title: "Transform Your Business",
+            subtitle: "Unlock the power of innovation",
+            image: {
+                url: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            },
+            updatedAt: "2022-01-01T00:00:00Z",
+            __typename: "NewsItems",
+            shortDescription: "Unlock the power of innovation and transform your business with the latest insights and trends. Unlock the power of innovation.",
+            sections: [{
+                text: {
+                    text: "Unlock the power of innovation and transform your business with the latest insights and trends."
+                }
+            }],
+            url: "/news/3"
+        }]
     }]
 };
 

@@ -78,6 +78,16 @@ const theme = (mode: PaletteMode) => createTheme({
             fontWeight: 300,
             lineHeight: 1.25,
         },
+        h3: {
+            fontSize: "2.1rem",
+            fontWeight: 300,
+            lineHeight: 1.25,
+        },
+        h4: {
+            fontSize: "1.8rem",
+            fontWeight: 300,
+            lineHeight: 1.25,
+        },
     },
     shape: {
         borderRadius: 20,
