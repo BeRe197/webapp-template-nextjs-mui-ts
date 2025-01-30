@@ -4,6 +4,7 @@ import Text from "@/widgets/text";
 import Grid from "@/widgets/grid";
 import TextAndImage from "@/widgets/textAndImage";
 import News from "@/widgets/news";
+import Timeline from "@/widgets/timeline";
 
 interface TextSection {
     __typename: "Text";
@@ -70,7 +71,22 @@ interface NewsSection {
     iNewsPerPage?: number;
 }
 
-type Section = TextSection | GridSection | TextAndImageSection | NewsSection;
+interface TimelineSection {
+    __typename: "Timeline";
+    id: string;
+    name: string;
+    items: [{
+        id: string;
+        title: string;
+        date: string;
+    }];
+    button?: {
+        text: string;
+        url: string;
+    };
+}
+
+type Section = TextSection | GridSection | TextAndImageSection | NewsSection | TimelineSection;
 
 interface Props {
     section: Section;
@@ -89,6 +105,8 @@ const Widgets = ({section}: Props) => {
         case "News":
             return <News key={section.id} name={section.name} items={section.items} pageInfo={section.pageInfo}
                          iNewsPerPage={section.iNewsPerPage}/>;
+        case "Timeline":
+            return <Timeline key={section.id} name={section.name} items={section.items} button={section.button}/>;
         default:
             return <></>;
     }

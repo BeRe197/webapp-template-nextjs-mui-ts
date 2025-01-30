@@ -102,6 +102,39 @@ const intros = {
             }],
             url: "/news/3"
         }]
+    }, {
+        id: "5",
+        __typename: "Timeline",
+        name: "Our Story",
+        items: [{
+            id: "1",
+            title: "Surfing",
+            date: "2020-01-01T00:00:00Z",
+        }, {
+            id: "2",
+            title: "Hiking",
+            date: "2021-01-02T00:00:00Z",
+        }, {
+            id: "3",
+            title: "Camping",
+            date: "2022-01-03T00:00:00Z",
+        }, {
+            id: "4",
+            title: "Skiing",
+            date: "2023-02-05T00:00:00Z",
+        }, {
+            id: "5",
+            title: "Snowboarding",
+            date: "2024-06-05T00:00:00Z",
+        }, {
+            id: "6",
+            title: "Mountain Biking",
+            date: "2025-07-03T00:00:00Z",
+        }],
+        button: {
+            text: "Learn More",
+            url: "/our-story"
+        }
     }]
 };
 
