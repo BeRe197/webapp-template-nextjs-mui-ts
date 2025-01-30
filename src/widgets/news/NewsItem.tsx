@@ -1,8 +1,6 @@
 import GridItem from "@/components/grid/gridItem";
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
 import {useRouter} from "next/navigation";
-import Image from "next/image";
-import Box from "@mui/material/Box";
 
 const maxLengthDescription = 150;
 const btnText = "Mehr erfahren";
