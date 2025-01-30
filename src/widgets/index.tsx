@@ -75,11 +75,11 @@ interface TimelineSection {
     __typename: "Timeline";
     id: string;
     name: string;
-    items: [{
+    items: {
         id: string;
         title: string;
         date: string;
-    }];
+    }[];
     button?: {
         text: string;
         url: string;
