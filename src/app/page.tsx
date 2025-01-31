@@ -18,17 +18,20 @@ const intros = {
             id: "1",
             title: "Discover",
             subtitle: "Explore the latest trends and insights",
-            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            image: "discover_tune",
+            icon: true
         }, {
             id: "2",
             title: "Engage",
             subtitle: "Connect with a global community",
-            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            image: "code_blocks",
+            icon: true
         }, {
             id: "3",
             title: "Transform",
             subtitle: "Unlock the power of innovation",
-            image: "https://cdn.pixabay.com/photo/2015/01/21/14/14/apple-606761_1280.jpg"
+            image: "transform",
+            icon: true
         }]
     }, {
         id: "3",

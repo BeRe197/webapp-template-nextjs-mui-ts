@@ -8,8 +8,8 @@ import BackToTop from "@/components/button/scrollToTop";
 //provider
 import ThemeContextProvider from "@/provider/theme/themeprovider";
 //style
-import {container} from "@/assets/jss/global.style";
 import "@/assets/css/globals.css";
+import "@/assets/css/globalicons.css";
 
 export const metadata: Metadata = {
     title: "Webapp Template",
