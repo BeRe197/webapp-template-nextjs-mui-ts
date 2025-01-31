@@ -22,7 +22,7 @@ const Text = ({name, text, emphasized = false}: Props) => {
 
     return (
         <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
-            <Box sx={emphasized ? {textAlign: "center", maxWidth: "600px", margin: "0 auto"} : {}}>
+            <Box sx={emphasized ? {textAlign: "center", maxWidth: "600px !important", margin: "0 auto"} : {}}>
                 <Typography
                     variant="h2"
                     component="h1"
