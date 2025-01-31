@@ -33,15 +33,16 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
     const router = useRouter();
 
     return (
-        <GridItem size={{xs: 10, sm: 6, md: 5, lg: 3}} sx={{display: "flex", flexDirection: "row"}}>
-            <Card sx={{width: "100%"}}>
+        <GridItem size={{xs: 10, sm: 6, md: 4, lg: 3}}>
+            <Card sx={{display: "flex", flexDirection: "column", height: "100%"}}>
                 <CardMedia
                     component="img"
                     height="180"
                     image={newsItem.image.url}
                     alt={newsItem.title}
+                    sx={{padding: "1rem", borderRadius: "24px"}}
                 />
-                <CardContent sx={{display: "flex", flexDirection: "column"}}>
+                <CardContent sx={{padding: "0 1rem", flexGrow: 1}}>
                     <Typography variant="caption" gutterBottom sx={{display: 'block'}}>
                         {new Intl.DateTimeFormat("de-DE", {
                             year: "numeric",
@@ -53,8 +54,7 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
                         {newsItem.title}
                     </Typography>
                     {newsItem.__typename === newsItemsTypename ? (
-                        <Typography variant="body1" gutterBottom
-                                    sx={{flexGrow: 1}}>{newsItem.shortDescription}</Typography>
+                        <Typography variant="body1" gutterBottom>{newsItem.shortDescription}</Typography>
                     ) : (
                         <Typography variant="body1" gutterBottom>
                             {newsItem.sections?.[0].text
@@ -92,6 +92,7 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
                                 newsItem.url
                             );
                         }}
+                        fullWidth={true}
                     >
                         {btnText} &#8594;
                     </Button>
