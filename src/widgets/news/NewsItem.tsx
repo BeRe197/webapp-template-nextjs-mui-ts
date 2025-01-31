@@ -33,8 +33,8 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
     const router = useRouter();
 
     return (
-        <GridItem size={{xs: 10, sm: 6, md: 5, lg: 4}} sx={{display: "flex", flexDirection: "row"}}>
-            <Card>
+        <GridItem size={{xs: 10, sm: 6, md: 5, lg: 3}} sx={{display: "flex", flexDirection: "row"}}>
+            <Card sx={{width: "100%"}}>
                 <CardMedia
                     component="img"
                     height="180"

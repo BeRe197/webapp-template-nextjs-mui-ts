@@ -57,6 +57,7 @@ const News = ({name, items, pageInfo, iNewsPerPage = 3}: props) => {
                 <GridContainer
                     rowSpacing={4}
                     columnSpacing={4}
+                    justifyContent="center"
                 >
                     {items.map((item) => (
                         <NewsItem key={item.id} newsItem={item}/>
