@@ -14,7 +14,7 @@ import {KeyboardArrowLeft, KeyboardArrowRight} from '@mui/icons-material';
 // components
 import IconButton from "@/components/button/iconButton";
 // style
-import {btnAnimation} from "@/assets/jss/global.style";
+import {btnAnimation, container} from "@/assets/jss/global.style";
 
 interface HeroPage {
     title: string;
@@ -103,6 +103,7 @@ const HeroSection = () => {
                     '& .MuiContainer-root': {
                         padding: 'inherit',
                     },
+                    ...container
                 }}
             >
                 <Typography

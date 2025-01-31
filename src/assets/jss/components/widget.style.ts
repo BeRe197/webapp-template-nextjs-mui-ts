@@ -1,14 +1,18 @@
 import {container, btnAnimation} from "@/assets/jss/global.style";
 
 const widgetStyle = {
-    container: {
-        ...container,
-    },
     btnAnimation: {
         ...btnAnimation,
     },
     item: {
-        mt: "2rem",
+        pt: "2rem",
+        pb: "2rem",
+        "&:nth-child(even)": {
+            background: "#EEEEEE",
+        },
+        "& > div": {
+            ...container
+        },
     },
 };
 export default widgetStyle;

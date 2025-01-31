@@ -24,9 +24,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
             <ThemeContextProvider>
                 <Box component={"div"} id="back-to-top-anchor"/>
-                <Box component={"div"} sx={container}>
-                    {children}
-                </Box>
+                {children}
                 <BackToTop/>
             </ThemeContextProvider>
         </AppRouterCacheProvider>

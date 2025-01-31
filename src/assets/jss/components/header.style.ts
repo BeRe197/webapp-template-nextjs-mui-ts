@@ -1,5 +1,3 @@
-import {container} from "@/assets/jss/global.style";
-
 const headerStyle = {
     appBar: {
         display: "flex",
@@ -11,9 +9,6 @@ const headerStyle = {
     },
     flex: {
         flex: 1,
-    },
-    container: {
-        ...container,
     },
 };
 
