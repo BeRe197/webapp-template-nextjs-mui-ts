@@ -54,9 +54,10 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
                         {newsItem.title}
                     </Typography>
                     {newsItem.__typename === newsItemsTypename ? (
-                        <Typography variant="body1" gutterBottom>{newsItem.shortDescription}</Typography>
+                        <Typography variant="body1"
+                                    gutterBottom sx={{margin: 0}}>{newsItem.shortDescription}</Typography>
                     ) : (
-                        <Typography variant="body1" gutterBottom>
+                        <Typography variant="body1" gutterBottom sx={{margin: 0}}>
                             {newsItem.sections?.[0].text
                                 ? newsItem.sections[0].text?.text
                                     .replace(/(\\n)+/g, " ")
