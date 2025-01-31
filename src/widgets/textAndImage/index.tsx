@@ -11,6 +11,7 @@ import {
     replaceEmailWidthFunction,
     replaceWhitespaceByHyphen
 } from "@/components/utils/utils";
+import Section from "@/components/animation/section";
 // style
 import widgetStyle from "@/assets/jss/components/widget.style";
 
@@ -33,7 +34,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
 
     return (
         <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
-            <Box component={"div"}>
+            <Section>
                 <GridContainer spacing={3} sx={ltr ? {flexDirection: "row"} : {flexDirection: "row-reverse"}}>
                     <GridItem size={{xs: 12, sm: 12, md: 6}}>
                         <Typography
@@ -81,7 +82,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                         </Box>
                     </GridItem>
                 </GridContainer>
-            </Box>
+            </Section>
         </GridItem>
     );
 };

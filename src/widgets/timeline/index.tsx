@@ -1,10 +1,12 @@
+import {useMediaQuery} from "@mui/system";
+import {useRouter} from "next/navigation";
 import GridContainer from "@/components/grid/gridContainer";
 import GridItem from "@/components/grid/gridItem";
 import {
     removeSpecialCharacters,
     replaceWhitespaceByHyphen
 } from "@/components/utils/utils";
-import {Typography, Box, useTheme, Button} from "@mui/material";
+import {Typography, useTheme, Button} from "@mui/material";
 import {default as MUITimeline} from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -12,12 +14,11 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+import Section from "@/components/animation/section";
 //style
 import widgetStyle from "@/assets/jss/components/widget.style";
 //icon
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import {useMediaQuery} from "@mui/system";
-import {useRouter} from "next/navigation";
 
 interface Props {
     name: string;
@@ -55,7 +56,7 @@ const Timeline = ({name, items, button}: Props) => {
 
     return (
         <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
-            <Box sx={{textAlign: "center"}}>
+            <Section style={{textAlign: "center"}}>
                 <Typography
                     variant="h2"
                     component="h1"
@@ -94,7 +95,7 @@ const Timeline = ({name, items, button}: Props) => {
                 >
                     {button?.text ?? "View all"}
                 </Button>
-            </Box>
+            </Section>
         </GridItem>
     );
 };

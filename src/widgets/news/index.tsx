@@ -1,12 +1,13 @@
+import {ChangeEvent} from "react";
 import {Pagination, Typography, Box} from "@mui/material";
 // components
 import GridContainer from "@/components/grid/gridContainer";
 import GridItem from "@/components/grid/gridItem";
 import {removeSpecialCharacters, replaceWhitespaceByHyphen} from "@/components/utils/utils";
 import NewsItem from "@/widgets/news/NewsItem";
+import Section from "@/components/animation/section";
 // style
 import widgetStyle from "@/assets/jss/components/widget.style";
-import {ChangeEvent} from "react";
 
 interface props {
     name: string;
@@ -44,7 +45,7 @@ const News = ({name, items, pageInfo, iNewsPerPage = 3}: props) => {
 
     return (
         <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
-            <Box component={"div"} sx={{textAlign: "center"}}>
+            <Section style={{textAlign: "center"}}>
                 <Typography
                     variant="h2"
                     component="h1"
@@ -74,7 +75,7 @@ const News = ({name, items, pageInfo, iNewsPerPage = 3}: props) => {
                         </Box>
                     </GridItem>
                 </GridContainer>
-            </Box>
+            </Section>
         </GridItem>
     );
 }

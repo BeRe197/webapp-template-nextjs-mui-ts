@@ -8,6 +8,7 @@ import {
     replaceWhitespaceByHyphen
 } from "@/components/utils/utils";
 import {Typography, Box} from "@mui/material";
+import Section from "@/components/animation/section";
 //style
 import widgetStyle from "@/assets/jss/components/widget.style";
 
@@ -22,34 +23,36 @@ const Text = ({name, text, emphasized = false}: Props) => {
 
     return (
         <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
-            <Box sx={emphasized ? {textAlign: "center", maxWidth: "600px !important", margin: "0 auto"} : {}}>
-                <Typography
-                    variant="h2"
-                    component="h1"
-                    id={replaceWhitespaceByHyphen(removeSpecialCharacters(name))}
-                    className={"title"}
-                >
-                    {name}
-                </Typography>
-                <Box component={"div"}
-                     sx={emphasized ? {fontSize: "1.5rem", lineHeight: "3rem", hyphens: "none"} : {}}
-                     dangerouslySetInnerHTML={{
-                         __html: addIDsToHeader(
-                             replaceEmailWidthFunction(
-                                 DOMPurify.sanitize(text, {
-                                     ADD_TAGS: ["iframe"],
-                                     ADD_ATTR: [
-                                         "allow",
-                                         "allowfullscreen",
-                                         "frameborder",
-                                         "scrolling",
-                                     ],
-                                 })
-                             )
-                         ),
-                     }}
-                />
-            </Box>
+            <Section>
+                <Box sx={emphasized ? {textAlign: "center", maxWidth: "600px !important", margin: "0 auto"} : {}}>
+                    <Typography
+                        variant="h2"
+                        component="h1"
+                        id={replaceWhitespaceByHyphen(removeSpecialCharacters(name))}
+                        className={"title"}
+                    >
+                        {name}
+                    </Typography>
+                    <Box component={"div"}
+                         sx={emphasized ? {fontSize: "1.5rem", lineHeight: "3rem", hyphens: "none"} : {}}
+                         dangerouslySetInnerHTML={{
+                             __html: addIDsToHeader(
+                                 replaceEmailWidthFunction(
+                                     DOMPurify.sanitize(text, {
+                                         ADD_TAGS: ["iframe"],
+                                         ADD_ATTR: [
+                                             "allow",
+                                             "allowfullscreen",
+                                             "frameborder",
+                                             "scrolling",
+                                         ],
+                                     })
+                                 )
+                             ),
+                         }}
+                    />
+                </Box>
+            </Section>
         </GridItem>
     );
 }
