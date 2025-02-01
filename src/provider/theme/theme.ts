@@ -134,6 +134,15 @@ export const getTheme = (mode: 'light' | 'dark') => {
                     },
                 },
             },
+            MuiCard: {
+                styleOverrides: {
+                    root: {
+                        '&:hover': {
+                            backgroundColor: mode === 'light' ? "#f6b2c3" : "#7e394c",
+                        },
+                    },
+                },
+            },
         }
     });
 };
