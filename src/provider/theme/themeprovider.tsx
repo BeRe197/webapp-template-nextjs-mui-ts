@@ -17,9 +17,11 @@ const THEME_MODE_KEY = 'theme-mode';
 export const ThemeProvider = ({children}: { children: ReactNode }) => {
     const [mode, setMode] = useState<ThemeMode>(() => {
         // Check localStorage first
-        const savedMode = localStorage.getItem(THEME_MODE_KEY) as ThemeMode | null;
-        if (savedMode) {
-            return savedMode;
+        if (typeof window !== 'undefined') {
+            const savedMode = window.localStorage.getItem(THEME_MODE_KEY) as ThemeMode | null;
+            if (savedMode) {
+                return savedMode;
+            }
         }
 
         // Fall back to system preference
@@ -34,8 +36,10 @@ export const ThemeProvider = ({children}: { children: ReactNode }) => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
         const handleChange = (e: MediaQueryListEvent) => {
-            if (!localStorage.getItem(THEME_MODE_KEY)) {
-                setMode(e.matches ? 'dark' : 'light');
+            if (typeof window !== 'undefined') {
+                if (!window.localStorage.getItem(THEME_MODE_KEY)) {
+                    setMode(e.matches ? 'dark' : 'light');
+                }
             }
         };
 
@@ -47,7 +51,9 @@ export const ThemeProvider = ({children}: { children: ReactNode }) => {
     const toggleTheme = () => {
         const newMode = mode === 'light' ? 'dark' : 'light';
         setMode(newMode);
-        localStorage.setItem(THEME_MODE_KEY, newMode);
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem(THEME_MODE_KEY, newMode);
+        }
     };
 
     const theme = getTheme(mode);
