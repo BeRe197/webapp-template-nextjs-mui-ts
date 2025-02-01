@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    output: "export",
+    reactStrictMode: true,
 };
 
 export default nextConfig;
