@@ -10,6 +10,7 @@ import ThemeContextProvider from "@/provider/theme/themeprovider";
 //style
 import "@/assets/css/globals.css";
 import "@/assets/css/globalicons.css";
+import ScrollProgress from "@/components/animation/scrollProgress";
 
 export const metadata: Metadata = {
     title: "Webapp Template",
@@ -23,6 +24,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
         <body>
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
             <ThemeContextProvider>
+                <ScrollProgress/>
                 <Box component={"div"} id="back-to-top-anchor"/>
                 {children}
                 <BackToTop/>
