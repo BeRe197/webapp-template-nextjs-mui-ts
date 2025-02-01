@@ -117,5 +117,18 @@ export const getTheme = (mode: 'light' | 'dark') => {
             borderRadius: 10,
         },
         spacing: 8,
+        components: {
+            MuiFab: {
+                styleOverrides: {
+                    root: {
+                        '&:hover': {
+                            backgroundColor: mode === 'light'
+                                ? '#eeeeee'
+                                : '#35393b',
+                        },
+                    },
+                },
+            },
+        }
     });
 };
