@@ -171,7 +171,7 @@ export default function Home() {
             <main>
                 <GridContainer>
                     {intros.sections.map((section) => {
-                        // @ts-ignore
+                        // @ts-expect-error typesafe will be added later when project will connect to a real API
                         return <Widgets key={section.id} section={section}/>;
                     })}
                 </GridContainer>
