@@ -3,6 +3,29 @@ import GridContainer from "@/components/grid/gridContainer";
 import Widgets from "@/widgets";
 
 const intros = {
+    heroPages: [
+        {
+            title: "Welcome to Our Platform",
+            subtitle: "Discover amazing features that will transform your experience",
+            buttonText: "Get Started",
+            buttonLink: "/get-started",
+            backgroundImage: "https://cdn.pixabay.com/photo/2024/12/20/11/53/architect-9280053_1280.jpg",
+        },
+        {
+            title: "Powerful Solutions",
+            subtitle: "Built for modern businesses and teams",
+            buttonText: "Learn More",
+            buttonLink: "/solutions",
+            backgroundImage: "https://cdn.pixabay.com/photo/2017/09/09/14/41/surfer-2732200_1280.jpg",
+        },
+        {
+            title: "Join Our Community",
+            subtitle: "Connect with like-minded professionals",
+            buttonText: "Join Now",
+            buttonLink: "/join",
+            backgroundImage: "https://cdn.pixabay.com/photo/2022/10/26/14/16/harbour-7548583_1280.jpg",
+        },
+    ],
     sections: [{
         id: "1",
         __typename: "Text",
@@ -144,7 +167,7 @@ const intros = {
 export default function Home() {
     return (
         <>
-            <HeroSection/>
+            <HeroSection heroPages={intros.heroPages}/>
             <main>
                 <GridContainer>
                     {intros.sections.map((section) => {
