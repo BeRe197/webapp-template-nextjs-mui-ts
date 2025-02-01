@@ -12,7 +12,7 @@ const widgetStyle = (theme: { palette: PaletteOptions }) => ({
         pt: "2rem",
         pb: "2rem",
         "&:nth-child(even)": {
-            background: theme.palette.background?.paper,
+            background: theme.palette.background?.odd,
         },
         "& > div": {
             ...container

@@ -12,7 +12,7 @@ declare module '@mui/material/styles' {
         };
         footer?: {
             main: string;
-        }
+        };
     }
 
     interface PaletteOptions {
@@ -25,7 +25,11 @@ declare module '@mui/material/styles' {
         };
         footer?: {
             main: string;
-        }
+        };
+    }
+
+    interface TypeBackground {
+        odd: string;
     }
 }
 
@@ -59,7 +63,8 @@ const getDesignTokens = (mode: 'light' | 'dark'): PaletteOptions => ({
     },
     background: {
         default: mode === 'light' ? '#ffffff' : '#212528',
-        paper: mode === 'light' ? '#EEEEEE' : '#272b2e',
+        paper: mode === 'light' ? '#ffffff' : '#272b2e',
+        odd: mode === 'light' ? '#EEEEEE' : '#272b2e',
     },
     text: {
         primary: mode === 'light' ? 'rgba(0, 0, 0, 0.87)' : 'rgba(255, 255, 255, 0.87)',
