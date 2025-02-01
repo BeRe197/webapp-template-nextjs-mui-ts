@@ -61,7 +61,7 @@ const intros = {
         __typename: "TextAndImage",
         name: "Join Our Community",
         text: {
-            html: "<p>Connect with like-minded professionals and <b>explore</b> ideas that <b>transform</b> the world.</p>",
+            html: "<p>Connect with like-minded professionals and <b>explore</b> ideas that <b>transform</b> the world. Join our community to <b>network</b> with industry leaders, <b>share</b> your insights, and <b>collaborate</b> on groundbreaking projects. Discover new opportunities, <b>learn</b> from experts, and <b>grow</b> your skills in a supportive environment. Together, we can <b>innovate</b> and <b>create</b> a brighter future.</p>",
         },
         image: {
             url: "https://cdn.pixabay.com/photo/2024/09/20/01/37/dubai-creek-9060098_1280.jpg",
