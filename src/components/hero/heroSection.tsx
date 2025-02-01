@@ -1,5 +1,5 @@
 "use client";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {
     Box,
     Typography,
@@ -37,6 +37,18 @@ const HeroSection = ({heroPages}: { heroPages: HeroPage[] }) => {
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
     };
+
+    useEffect(() => {
+        // Auto play - rotate every X seconds
+        const timeout = setTimeout(() => {
+            if (activeStep === maxSteps - 1) {
+                setActiveStep(0);
+            } else {
+                setActiveStep((prevStep) => prevStep + 1);
+            }
+        }, 6000);
+        return () => clearTimeout(timeout);
+    }, [activeStep, maxSteps]);
 
     const currentPage = heroPages[activeStep];
 
