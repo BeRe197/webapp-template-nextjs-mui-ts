@@ -3,8 +3,11 @@ import {MouseEvent} from 'react';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
+//style
+import {focusAnimation} from "@/assets/jss/global.style";
+//icons
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 interface Props {
     children?: React.ReactElement<unknown>;
@@ -45,7 +48,7 @@ function ScrollTop(props: Props) {
 export default function BackToTop(props: Props) {
     return (
         <ScrollTop {...props}>
-            <Fab size="small" aria-label="scroll back to top">
+            <Fab size="small" aria-label="scroll back to top" sx={focusAnimation}>
                 <KeyboardArrowUpIcon color={"primary"}/>
             </Fab>
         </ScrollTop>

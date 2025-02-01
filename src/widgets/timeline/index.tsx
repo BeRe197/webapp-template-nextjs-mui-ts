@@ -40,7 +40,8 @@ const Timeline = ({name, items, button}: Props) => {
 
     const renderTimelineItems = (items: Props['items']) => (
         items.map((item, index, array) => (
-            <TimelineItem key={item.id} sx={index !== array.length - 1 ? {} : {minHeight: 0}}>
+            <TimelineItem key={item.id}
+                          sx={index !== array.length - 1 ? {...widgetStyle.focusAnimation} : {minHeight: 0, ...widgetStyle.focusAnimation}}>
                 <TimelineOppositeContent>
                     {new Intl.DateTimeFormat("de-DE", {month: "long", day: "2-digit"}).format(new Date(item.date))}
                 </TimelineOppositeContent>
@@ -92,6 +93,7 @@ const Timeline = ({name, items, button}: Props) => {
                     variant="outlined"
                     endIcon={<KeyboardArrowRightIcon sx={{ml: "-4px"}}/>}
                     onClick={() => router.push(button?.url ?? "/")}
+                    sx={widgetStyle.btnAnimation}
                 >
                     {button?.text ?? "View all"}
                 </Button>

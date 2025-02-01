@@ -1,8 +1,11 @@
-import {container, btnAnimation} from "@/assets/jss/global.style";
+import {container, btnAnimation, focusAnimation} from "@/assets/jss/global.style";
 
 const widgetStyle = {
     btnAnimation: {
         ...btnAnimation,
+    },
+    focusAnimation: {
+        ...focusAnimation,
     },
     item: {
         pt: "2rem",

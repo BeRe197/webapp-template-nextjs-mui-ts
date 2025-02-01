@@ -76,7 +76,12 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                         }
                     </GridItem>
                     <GridItem size={{xs: 12, sm: 12, md: 6}}>
-                        <Box sx={{position: "relative", width: "100%", paddingBottom: "56.25%"}}>
+                        <Box sx={{
+                            position: "relative",
+                            width: "100%",
+                            paddingBottom: "56.25%",
+                            ...widgetStyle.focusAnimation,
+                        }}>
                             <Image src={image.url} alt={image.fileName} loading="lazy"
                                    style={{maxWidth: "100%"}} layout={"fill"} objectFit={"cover"}/>
                         </Box>

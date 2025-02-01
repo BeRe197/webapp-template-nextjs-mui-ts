@@ -50,7 +50,7 @@ const Header = () => {
     return (
         <ElevationScroll>
             <AppBar position="fixed" sx={headerStyle.appBar}>
-                <Container sx={headerStyle.container}>
+                <Container>
                     <Toolbar disableGutters>
                         <Box
                             component="div"

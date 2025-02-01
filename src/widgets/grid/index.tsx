@@ -25,7 +25,7 @@ const Grid = ({items, columnSpacing = 15}: Props) => {
                 <GridContainer columnSpacing={columnSpacing} rowSpacing={8}>
                     {items.map((item) => (
                         <GridItem key={item.id} size={{xs: 12, sm: 4, md: 4}}>
-                            <Box sx={{textAlign: "center", position: "relative"}}>
+                            <Box sx={{textAlign: "center", position: "relative", ...widgetStyle.focusAnimation}}>
                                 {item.icon ? (<Icon className={"material-symbols-outlined"} color={"primary"}
                                                     sx={{fontSize: "3rem !important"}}>{item.image}</Icon>) : (
                                     <Box sx={{position: "relative", width: "100%", paddingBottom: "56.25%"}}>

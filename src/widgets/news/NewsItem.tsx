@@ -1,6 +1,8 @@
 import GridItem from "@/components/grid/gridItem";
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
 import {useRouter} from "next/navigation";
+// style
+import widgetStyle from "@/assets/jss/components/widget.style";
 
 const maxLengthDescription = 150;
 const btnText = "Mehr erfahren";
@@ -34,7 +36,7 @@ const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
 
     return (
         <GridItem size={{xs: 10, sm: 6, md: 4, lg: 3}}>
-            <Card sx={{display: "flex", flexDirection: "column", height: "100%"}}>
+            <Card sx={{display: "flex", flexDirection: "column", height: "100%", ...widgetStyle.focusAnimation}}>
                 <CardMedia
                     component="img"
                     height="180"
