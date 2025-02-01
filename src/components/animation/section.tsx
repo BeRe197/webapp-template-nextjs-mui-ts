@@ -1,6 +1,7 @@
 "use client";
 import {ReactNode} from "react";
 import {motion} from "framer-motion";
+import Box from "@mui/material/Box";
 
 interface props {
     children: ReactNode,
@@ -10,16 +11,15 @@ interface props {
 
 const Section = ({children, style, once = false}: props) => {
     return (
-        <motion.div
-            initial={{opacity: 0, y: 50}}
-            whileInView={{opacity: 1, y: 0}}
-            transition={{duration: 1, ease: "easeOut"}}
-            viewport={{once: once}}
-            className="my-20 p-10 bg-gray-100 rounded-lg"
-            style={style}
+        <Box component={motion.div}
+             initial={{opacity: 0, y: 50}}
+             whileInView={{opacity: 1, y: 0}}
+             transition={{duration: 1, ease: "easeOut"}}
+             viewport={{once: once}}
+             style={style}
         >
             {children}
-        </motion.div>
+        </Box>
     );
 };
 

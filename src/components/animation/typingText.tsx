@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
-import {Typography} from "@mui/material";
+import {Typography, Box} from "@mui/material";
 
 const TypingText = ({words}: { words: string[] }) => {
     const [text, setText] = useState("");
@@ -20,7 +20,8 @@ const TypingText = ({words}: { words: string[] }) => {
     }, [text, index, words]);
 
     return (
-        <motion.div>
+        <Box component={motion.div} animate={{y: [0, -2, 0]}}
+             transition={{duration: 2, repeat: Infinity, ease: "easeInOut"}}>
             <Typography
                 variant="h2"
                 component="h1"
@@ -33,7 +34,7 @@ const TypingText = ({words}: { words: string[] }) => {
             >
                 {text} <span className="animate-pulse">|</span>
             </Typography>
-        </motion.div>
+        </Box>
     );
 };
 
