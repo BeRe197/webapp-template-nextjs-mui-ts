@@ -65,7 +65,7 @@ const HeroSection = () => {
     const currentPage = heroPages[activeStep];
 
     return (
-        <Box sx={{position: 'relative', width: '100%', height: '70vh'}}>
+        <Box sx={{position: 'relative', width: '100%', height: '60vh'}}>
             {/* Background Image */}
             <Box
                 sx={{
