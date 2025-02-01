@@ -1,5 +1,4 @@
 import Image from "next/image";
-import DOMPurify from "dompurify";
 import {Typography, Box, Button, useTheme} from "@mui/material";
 // components
 import GridContainer from "@/components/grid/gridContainer";
@@ -50,17 +49,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                         <Box component={"div"}
                              dangerouslySetInnerHTML={{
                                  __html: addIDsToHeader(
-                                     replaceEmailWidthFunction(
-                                         DOMPurify.sanitize(text, {
-                                             ADD_TAGS: ["iframe"],
-                                             ADD_ATTR: [
-                                                 "allow",
-                                                 "allowfullscreen",
-                                                 "frameborder",
-                                                 "scrolling",
-                                             ],
-                                         })
-                                     )
+                                     replaceEmailWidthFunction(text)
                                  ),
                              }}
                              style={{textAlign: "left"}}

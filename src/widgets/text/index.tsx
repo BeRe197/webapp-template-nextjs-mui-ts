@@ -1,4 +1,3 @@
-import DOMPurify from "dompurify";
 import GridItem from "@/components/grid/gridItem";
 import useEmailScript from "@/components/hooks/useEmailScript";
 import {
@@ -39,17 +38,7 @@ const Text = ({name, text, emphasized = false}: Props) => {
                          sx={emphasized ? {fontSize: "1.5rem", lineHeight: "3rem", hyphens: "none"} : {}}
                          dangerouslySetInnerHTML={{
                              __html: addIDsToHeader(
-                                 replaceEmailWidthFunction(
-                                     DOMPurify.sanitize(text, {
-                                         ADD_TAGS: ["iframe"],
-                                         ADD_ATTR: [
-                                             "allow",
-                                             "allowfullscreen",
-                                             "frameborder",
-                                             "scrolling",
-                                         ],
-                                     })
-                                 )
+                                 replaceEmailWidthFunction(text)
                              ),
                          }}
                     />
