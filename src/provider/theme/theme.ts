@@ -62,6 +62,9 @@ const colors = {
 };
 
 const theme = (mode: PaletteMode) => createTheme({
+    colorSchemes: {
+        dark: true,
+    },
     palette: {
         mode: mode || "light",
         ...colors,
