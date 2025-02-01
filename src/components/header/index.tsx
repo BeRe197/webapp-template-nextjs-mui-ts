@@ -65,7 +65,7 @@ const Header = () => {
                                 display: {
                                     xs: "none !important",
                                     sm: "none !important",
-                                    md: "none !important",
+                                    md: "block !important",
                                     lg: "block !important",
                                 },
                             }}
@@ -77,7 +77,7 @@ const Header = () => {
                             color="inherit"
                             aria-label="open drawer"
                             onClick={handleDrawerToggle}
-                            sx={{display: {lg: "none !important"}}}
+                            sx={{display: {md: "none !important"}}}
                         >
                             <MenuIcon/>
                         </IconButton>

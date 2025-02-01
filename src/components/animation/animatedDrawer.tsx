@@ -28,7 +28,7 @@ const AnimatedDrawer = ({drawerOpen, handleDrawerToggle, headerLinks}: Props) =>
                     anchor="right"
                     open={drawerOpen}
                     onClose={handleDrawerToggle}
-                    sx={{display: {lg: "none !important", md: "block !important"}}}
+                    sx={{display: {lg: "none !important", md: "none !important", sm: "block !important"}}}
                 >
                     <motion.div
                         initial="hidden"
