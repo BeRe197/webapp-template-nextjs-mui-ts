@@ -3,11 +3,14 @@ import {ReactNode} from "react";
 //mui
 import {AppRouterCacheProvider} from "@mui/material-nextjs/v14-appRouter";
 import Box from "@mui/material/Box";
+import {CssBaseline} from "@mui/material";
 //components
 import BackToTop from "@/components/button/scrollToTop";
 import ScrollProgress from "@/components/animation/scrollProgress";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 //provider
-import ThemeContextProvider from "@/provider/theme/themeprovider";
+import {ThemeProvider} from "@/provider/theme/themeprovider";
 //style
 import "@/assets/css/globals.css";
 import "@/assets/css/globalicons.css";
@@ -23,12 +26,15 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
         <html lang="en">
         <body>
         <AppRouterCacheProvider options={{enableCssLayer: true}}>
-            <ThemeContextProvider>
+            <ThemeProvider>
+                <Header/>
+                <CssBaseline/>
                 <ScrollProgress/>
                 <Box component={"div"} id="back-to-top-anchor"/>
                 {children}
                 <BackToTop/>
-            </ThemeContextProvider>
+                <Footer/>
+            </ThemeProvider>
         </AppRouterCacheProvider>
         </body>
         </html>

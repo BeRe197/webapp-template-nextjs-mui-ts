@@ -1,5 +1,5 @@
 import {ChangeEvent} from "react";
-import {Pagination, Typography, Box} from "@mui/material";
+import {Pagination, Typography, Box, useTheme} from "@mui/material";
 // components
 import GridContainer from "@/components/grid/gridContainer";
 import GridItem from "@/components/grid/gridItem";
@@ -38,13 +38,16 @@ interface props {
 }
 
 const News = ({name, items, pageInfo, iNewsPerPage = 3}: props) => {
+    const theme = useTheme();
+    const styles = widgetStyle(theme);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleChange = (event: ChangeEvent<unknown>, value: number) => {
         //TODO: Implement pagination
     };
 
     return (
-        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
+        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={styles.item}>
             <Section style={{textAlign: "center"}}>
                 <Typography
                     variant="h2"

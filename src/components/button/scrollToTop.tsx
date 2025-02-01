@@ -1,17 +1,14 @@
 "use client";
-import {MouseEvent} from 'react';
+import {MouseEvent, ReactElement} from 'react';
 import {motion} from "framer-motion";
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
-import Fade from '@mui/material/Fade';
+import {useTheme, Fade, Fab, Box, useScrollTrigger} from "@mui/material";
 //style
 import {focusAnimation} from "@/assets/jss/global.style";
 //icons
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 interface Props {
-    children?: React.ReactElement<unknown>;
+    children?: ReactElement<unknown>;
 }
 
 function ScrollTop(props: Props) {
@@ -54,9 +51,15 @@ function ScrollTop(props: Props) {
 }
 
 export default function BackToTop(props: Props) {
+    const theme = useTheme();
+
     return (
         <ScrollTop {...props}>
-            <Fab size="small" aria-label="scroll back to top" sx={focusAnimation}>
+            <Fab size="small" aria-label="scroll back to top"
+                 sx={{
+                     ...focusAnimation,
+                     backgroundColor: theme.palette.background.paper,
+                 }}>
                 <KeyboardArrowUpIcon color={"primary"}/>
             </Fab>
         </ScrollTop>

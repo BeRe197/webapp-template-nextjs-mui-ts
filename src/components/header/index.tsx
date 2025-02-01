@@ -1,3 +1,4 @@
+"use client";
 import {cloneElement, ReactElement, useState} from "react";
 //Mui
 import AppBar from "@mui/material/AppBar";

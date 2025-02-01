@@ -1,6 +1,7 @@
 import {container, btnAnimation, focusAnimation} from "@/assets/jss/global.style";
+import {PaletteOptions} from "@mui/material/styles";
 
-const widgetStyle = {
+const widgetStyle = (theme: { palette: PaletteOptions }) => ({
     btnAnimation: {
         ...btnAnimation,
     },
@@ -11,11 +12,11 @@ const widgetStyle = {
         pt: "2rem",
         pb: "2rem",
         "&:nth-child(even)": {
-            background: "#EEEEEE",
+            background: theme.palette.background?.paper,
         },
         "& > div": {
             ...container
         },
     },
-};
+});
 export default widgetStyle;

@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+"use client";
 import {FC} from "react";
 import {Button, ButtonProps} from "@mui/material";
 import {css} from "@emotion/react";

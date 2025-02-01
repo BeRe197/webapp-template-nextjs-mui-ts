@@ -7,7 +7,7 @@ import {
     replaceEmailWidthFunction,
     replaceWhitespaceByHyphen
 } from "@/components/utils/utils";
-import {Typography, Box} from "@mui/material";
+import {Typography, Box, useTheme} from "@mui/material";
 import Section from "@/components/animation/section";
 //style
 import widgetStyle from "@/assets/jss/components/widget.style";
@@ -20,9 +20,11 @@ interface Props {
 
 const Text = ({name, text, emphasized = false}: Props) => {
     useEmailScript();
+    const theme = useTheme();
+    const styles = widgetStyle(theme);
 
     return (
-        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
+        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={styles.item}>
             <Section>
                 <Box sx={emphasized ? {textAlign: "center", maxWidth: "600px !important", margin: "0 auto"} : {}}>
                     <Typography

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import DOMPurify from "dompurify";
-import {Typography, Box, Button} from "@mui/material";
+import {Typography, Box, Button, useTheme} from "@mui/material";
 // components
 import GridContainer from "@/components/grid/gridContainer";
 import GridItem from "@/components/grid/gridItem";
@@ -31,9 +31,11 @@ interface props {
 
 const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
     useEmailScript();
+    const theme = useTheme();
+    const styles = widgetStyle(theme);
 
     return (
-        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
+        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={styles.item}>
             <Section>
                 <GridContainer spacing={3} sx={ltr ? {flexDirection: "row"} : {flexDirection: "row-reverse"}}>
                     <GridItem size={{xs: 12, sm: 12, md: 6}}>
@@ -68,7 +70,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                                 variant="contained"
                                 size="large"
                                 href={button.link}
-                                sx={widgetStyle.btnAnimation}
+                                sx={styles.btnAnimation}
                             >
                                 {button.text}
                             </Button>
@@ -80,7 +82,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                             position: "relative",
                             width: "100%",
                             paddingBottom: "56.25%",
-                            ...widgetStyle.focusAnimation,
+                            ...styles.focusAnimation,
                         }}>
                             <Image src={image.url} alt={image.fileName} loading="lazy"
                                    style={{maxWidth: "100%", borderRadius: "20px",}} layout={"fill"}

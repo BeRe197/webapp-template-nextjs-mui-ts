@@ -37,11 +37,12 @@ const Timeline = ({name, items, button}: Props) => {
     const theme = useTheme();
     const smBreakpoint = useMediaQuery(theme.breakpoints.up('sm'));
     const router = useRouter();
+    const styles = widgetStyle(theme);
 
     const renderTimelineItems = (items: Props['items']) => (
         items.map((item, index, array) => (
             <TimelineItem key={item.id}
-                          sx={index !== array.length - 1 ? {...widgetStyle.focusAnimation} : {minHeight: 0, ...widgetStyle.focusAnimation}}>
+                          sx={index !== array.length - 1 ? {...styles.focusAnimation} : {minHeight: 0, ...styles.focusAnimation}}>
                 <TimelineOppositeContent>
                     {new Intl.DateTimeFormat("de-DE", {month: "long", day: "2-digit"}).format(new Date(item.date))}
                 </TimelineOppositeContent>
@@ -56,7 +57,7 @@ const Timeline = ({name, items, button}: Props) => {
     );
 
     return (
-        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
+        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={styles.item}>
             <Section style={{textAlign: "center"}}>
                 <Typography
                     variant="h2"
@@ -93,7 +94,7 @@ const Timeline = ({name, items, button}: Props) => {
                     variant="outlined"
                     endIcon={<KeyboardArrowRightIcon sx={{ml: "-4px"}}/>}
                     onClick={() => router.push(button?.url ?? "/")}
-                    sx={widgetStyle.btnAnimation}
+                    sx={styles.btnAnimation}
                 >
                     {button?.text ?? "View all"}
                 </Button>

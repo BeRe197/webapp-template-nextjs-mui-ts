@@ -1,20 +1,31 @@
-"use client";
+import {createTheme, PaletteOptions} from '@mui/material/styles';
 import {Source_Sans_3} from "next/font/google";
-import {createTheme, PaletteMode} from "@mui/material/styles";
 
-// Augment the palette to include custom color
 declare module '@mui/material/styles' {
     interface Palette {
+        neutral: Palette['primary'];
         header: {
             main: string;
             scroll: string;
             color: string;
             scrollColor: string;
         };
+        footer?: {
+            main: string;
+        }
     }
 
     interface PaletteOptions {
-        header?: PaletteOptions['primary'];
+        neutral?: PaletteOptions['primary'];
+        header?: {
+            main: string;
+            scroll: string;
+            color: string;
+            scrollColor: string;
+        };
+        footer?: {
+            main: string;
+        }
     }
 }
 
@@ -24,78 +35,87 @@ const fontStyle = Source_Sans_3({
     display: "swap",
 });
 
-const colors = {
+const PRIMARY_COLOR = '#E30039';
+
+const getDesignTokens = (mode: 'light' | 'dark'): PaletteOptions => ({
+    mode,
     primary: {
-        main: "#E30039",
-        dark: "#7d3245",
+        main: PRIMARY_COLOR,
+        light: mode === 'light' ? '#ff1a53' : '#ff3366',
+        dark: mode === 'light' ? '#b3002d' : '#cc0033',
+        contrastText: '#ffffff',
     },
     secondary: {
-        main: "#68AE63",
-        dark: "#3c473b",
+        main: mode === 'light' ? '#424242' : '#bdbdbd',
+        light: mode === 'light' ? '#6d6d6d' : '#e0e0e0',
+        dark: mode === 'light' ? '#1b1b1b' : '#8d8d8d',
+        contrastText: mode === 'light' ? '#ffffff' : '#000000',
     },
-    error: {
-        main: "#DD5A29",
-        dark: "#785447",
-    },
-    warning: {
-        main: "#ffb800",
-    },
-    white: {
-        main: "#fff",
-    },
-    text: {
-        primary: "rgba(0, 0, 0, 0.87)",
-        secondary: "rgba(0, 0, 0, 0.6)",
-        disabled: "rgba(0, 0, 0, 0.38)",
+    neutral: {
+        main: mode === 'light' ? '#f5f5f5' : '#262626',
+        light: mode === 'light' ? '#ffffff' : '#404040',
+        dark: mode === 'light' ? '#e0e0e0' : '#171717',
+        contrastText: mode === 'light' ? '#000000' : '#ffffff',
     },
     background: {
-        paper: "#fff",
-        default: "#f4f6f8",
-        footer: "#263238",
+        default: mode === 'light' ? '#ffffff' : '#212528',
+        paper: mode === 'light' ? '#EEEEEE' : '#272b2e',
+    },
+    text: {
+        primary: mode === 'light' ? 'rgba(0, 0, 0, 0.87)' : 'rgba(255, 255, 255, 0.87)',
+        secondary: mode === 'light' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)',
     },
     header: {
         main: "rgba(255,255,255,0)",
-        scroll: "#fff",
-        color: "#fff",
-        scrollColor: "#000",
+        scroll: mode === 'light' ? '#ffffff' : '#212528',
+        color: '#ffffff',
+        scrollColor: mode === 'light' ? "#000" : "#fff",
     },
-};
-
-const theme = (mode: PaletteMode) => createTheme({
-    colorSchemes: {
-        dark: true,
-    },
-    palette: {
-        mode: mode || "light",
-        ...colors,
-    },
-    typography: {
-        fontFamily: fontStyle.style.fontFamily,
-        fontSize: 14,
-        fontWeightLight: 200,
-        fontWeightRegular: 300,
-        fontWeightMedium: 400,
-        fontWeightBold: 500,
-        h2: {
-            fontSize: "2.5rem",
-            fontWeight: 300,
-            lineHeight: 1.25,
-        },
-        h3: {
-            fontSize: "2.1rem",
-            fontWeight: 300,
-            lineHeight: 1.25,
-        },
-        h4: {
-            fontSize: "1.8rem",
-            fontWeight: 300,
-            lineHeight: 1.25,
-        },
-    },
-    shape: {
-        borderRadius: 20,
-    },
-    spacing: 8,
+    footer: {
+        main: mode === 'light' ? '#263238' : '#35393b',
+    }
 });
 
-export default theme;
+export const getTheme = (mode: 'light' | 'dark') => {
+    const themeOptions = getDesignTokens(mode);
+
+    return createTheme({
+        palette: themeOptions,
+        typography: {
+            fontFamily: fontStyle.style.fontFamily,
+            fontSize: 14,
+            fontWeightLight: 200,
+            fontWeightRegular: 300,
+            fontWeightMedium: 400,
+            fontWeightBold: 500,
+            h1: {
+                fontWeight: 600,
+                fontSize: '2.5rem',
+            },
+            h2: {
+                fontWeight: 500,
+                fontSize: '2rem',
+            },
+            h3: {
+                fontWeight: 500,
+                fontSize: '1.75rem',
+            },
+            h4: {
+                fontWeight: 500,
+                fontSize: '1.5rem',
+            },
+            h5: {
+                fontWeight: 400,
+                fontSize: '1.25rem',
+            },
+            h6: {
+                fontWeight: 400,
+                fontSize: '1rem',
+            },
+        },
+        shape: {
+            borderRadius: 10,
+        },
+        spacing: 8,
+    });
+};

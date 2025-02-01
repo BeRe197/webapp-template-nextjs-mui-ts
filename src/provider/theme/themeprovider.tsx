@@ -1,40 +1,70 @@
-"use client"
-import {createContext, ReactNode, useMemo} from "react";
-//mui
-import {PaletteMode, ThemeProvider} from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-//theme
-import theme from "@/provider/theme/theme";
-//components
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import useLocalStorage from "@/components/hooks/useLocalStorage";
+"use client";
+import {createContext, useContext, useEffect, useState, ReactNode} from 'react';
+import {ThemeProvider as MUIThemeProvider} from '@mui/material/styles';
+import {getTheme} from './theme';
 
-export const ColorModeContext = createContext({
-    toggleColorMode: () => {
-    }
-});
+type ThemeMode = 'light' | 'dark';
 
-export default function ThemeContextProvider({children}: Readonly<{ children: ReactNode; }>) {
-    const [mode, setMode] = useLocalStorage<PaletteMode>("themeMode", "light");
-    const colorMode = useMemo(
-        () => ({
-            toggleColorMode: () => {
-                setMode((prevMode: string) => (prevMode === "light" ? "dark" : "light"));
-            },
-        }),
-        [setMode],
-    );
+interface ThemeContextType {
+    mode: ThemeMode;
+    toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+const THEME_MODE_KEY = 'theme-mode';
+
+export const ThemeProvider = ({children}: { children: ReactNode }) => {
+    const [mode, setMode] = useState<ThemeMode>(() => {
+        // Check localStorage first
+        const savedMode = localStorage.getItem(THEME_MODE_KEY) as ThemeMode | null;
+        if (savedMode) {
+            return savedMode;
+        }
+
+        // Fall back to system preference
+        if (typeof window !== 'undefined') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        return 'light';
+    });
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const handleChange = (e: MediaQueryListEvent) => {
+            if (!localStorage.getItem(THEME_MODE_KEY)) {
+                setMode(e.matches ? 'dark' : 'light');
+            }
+        };
+
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    const toggleTheme = () => {
+        const newMode = mode === 'light' ? 'dark' : 'light';
+        setMode(newMode);
+        localStorage.setItem(THEME_MODE_KEY, newMode);
+    };
+
+    const theme = getTheme(mode);
 
     return (
-        <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme(mode)}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline/>
-                <Header/>
+        <ThemeContext.Provider value={{mode, toggleTheme}}>
+            <MUIThemeProvider theme={theme}>
                 {children}
-                <Footer/>
-            </ThemeProvider>
-        </ColorModeContext.Provider>
+            </MUIThemeProvider>
+        </ThemeContext.Provider>
     );
-}
+};
+
+export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useTheme must be used within a ThemeProvider');
+    }
+    return context;
+};

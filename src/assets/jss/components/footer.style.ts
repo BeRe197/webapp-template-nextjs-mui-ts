@@ -1,6 +1,6 @@
 const footerStyle = {
     footer: {
-        backgroundColor: "background.footer",
+        backgroundColor: "footer.main",
         color: "white !important",
         py: 6,
     },

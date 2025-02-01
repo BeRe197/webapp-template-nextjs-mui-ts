@@ -22,6 +22,7 @@ interface GridSection {
         title: string;
         subtitle: string;
         image: string;
+        icon: false;
     }];
 }
 

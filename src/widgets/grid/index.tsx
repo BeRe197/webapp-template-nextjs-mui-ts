@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Typography, Box, Icon} from "@mui/material";
+import {Typography, Box, Icon, useTheme} from "@mui/material";
 //components
 import GridItem from "@/components/grid/gridItem";
 import GridContainer from "@/components/grid/gridContainer";
@@ -19,13 +19,16 @@ interface Props {
 }
 
 const Grid = ({items, columnSpacing = 15}: Props) => {
+    const theme = useTheme();
+    const styles = widgetStyle(theme);
+
     return (
-        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={widgetStyle.item}>
+        <GridItem size={{xs: 12, sm: 12, md: 12}} sx={styles.item}>
             <Section>
                 <GridContainer columnSpacing={columnSpacing} rowSpacing={8}>
                     {items.map((item) => (
                         <GridItem key={item.id} size={{xs: 12, sm: 4, md: 4}}>
-                            <Box sx={{textAlign: "center", position: "relative", ...widgetStyle.focusAnimation}}>
+                            <Box sx={{textAlign: "center", position: "relative", ...styles.focusAnimation}}>
                                 {item.icon ? (<Icon className={"material-symbols-outlined"} color={"primary"}
                                                     sx={{fontSize: "3rem !important"}}>{item.image}</Icon>) : (
                                     <Box sx={{position: "relative", width: "100%", paddingBottom: "56.25%"}}>

@@ -1,5 +1,5 @@
 import GridItem from "@/components/grid/gridItem";
-import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
+import {Button, Card, CardActions, CardContent, CardMedia, Typography, useTheme} from "@mui/material";
 import {useRouter} from "next/navigation";
 // style
 import widgetStyle from "@/assets/jss/components/widget.style";
@@ -33,10 +33,12 @@ interface NewsItem {
 
 const NewsItem = ({newsItem}: { newsItem: NewsItem }) => {
     const router = useRouter();
+    const theme = useTheme();
+    const styles = widgetStyle(theme);
 
     return (
         <GridItem size={{xs: 10, sm: 6, md: 4, lg: 3}}>
-            <Card sx={{display: "flex", flexDirection: "column", height: "100%", ...widgetStyle.focusAnimation}}>
+            <Card sx={{display: "flex", flexDirection: "column", height: "100%", ...styles.focusAnimation}}>
                 <CardMedia
                     component="img"
                     height="180"

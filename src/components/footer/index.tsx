@@ -12,7 +12,7 @@ import footerStyle from "@/assets/jss/components/footer.style";
 const Footer = () => {
     return (
         <Box component="footer" sx={footerStyle.footer}>
-            <GridContainer spacing={3} sx={footerStyle.container}>
+            <GridContainer spacing={3}>
                 <Grid size={{xs: 12, sm: 6, md: 6}} sx={{display: "flex"}}>
                     <Box component={"div"} sx={{mx: "auto", textAlign: "center"}}>
                         <BrandComponent sx={{mb: 2}}/>
