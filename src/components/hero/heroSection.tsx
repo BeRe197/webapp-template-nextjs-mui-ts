@@ -13,6 +13,7 @@ import {
 import {KeyboardArrowLeft, KeyboardArrowRight} from '@mui/icons-material';
 // components
 import IconButton from "@/components/button/iconButton";
+import TypingText from "@/components/animation/typingText";
 // style
 import {btnAnimation, container} from "@/assets/jss/global.style";
 
@@ -106,18 +107,7 @@ const HeroSection = () => {
                     ...container
                 }}
             >
-                <Typography
-                    variant="h2"
-                    component="h1"
-                    color={"white"}
-                    sx={{
-                        fontWeight: 'bold',
-                        mb: 2,
-                        animation: 'fadeIn 0.5s ease-in',
-                    }}
-                >
-                    {currentPage.title}
-                </Typography>
+                <TypingText words={[currentPage.title]}/>
 
                 <Typography
                     variant="h5"
