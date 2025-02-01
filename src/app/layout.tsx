@@ -5,12 +5,12 @@ import {AppRouterCacheProvider} from "@mui/material-nextjs/v14-appRouter";
 import Box from "@mui/material/Box";
 //components
 import BackToTop from "@/components/button/scrollToTop";
+import ScrollProgress from "@/components/animation/scrollProgress";
 //provider
 import ThemeContextProvider from "@/provider/theme/themeprovider";
 //style
 import "@/assets/css/globals.css";
 import "@/assets/css/globalicons.css";
-import ScrollProgress from "@/components/animation/scrollProgress";
 
 export const metadata: Metadata = {
     title: "Webapp Template",
@@ -32,6 +32,5 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
         </AppRouterCacheProvider>
         </body>
         </html>
-    )
-        ;
+    );
 }
