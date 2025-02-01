@@ -5,7 +5,6 @@ import GridContainer from "@/components/grid/gridContainer";
 import GridItem from "@/components/grid/gridItem";
 import useEmailScript from "@/components/hooks/useEmailScript";
 import {
-    addIDsToHeader,
     removeSpecialCharacters,
     replaceEmailWidthFunction,
     replaceWhitespaceByHyphen
@@ -48,9 +47,7 @@ const TextAndImage = ({name, text, image, button, ltr = true}: props) => {
                         </Typography>
                         <Box component={"div"}
                              dangerouslySetInnerHTML={{
-                                 __html: addIDsToHeader(
-                                     replaceEmailWidthFunction(text)
-                                 ),
+                                 __html: replaceEmailWidthFunction(text),
                              }}
                              style={{textAlign: "left"}}
                         />

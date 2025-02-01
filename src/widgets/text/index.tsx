@@ -1,7 +1,6 @@
 import GridItem from "@/components/grid/gridItem";
 import useEmailScript from "@/components/hooks/useEmailScript";
 import {
-    addIDsToHeader,
     removeSpecialCharacters,
     replaceEmailWidthFunction,
     replaceWhitespaceByHyphen
@@ -37,9 +36,7 @@ const Text = ({name, text, emphasized = false}: Props) => {
                     <Box component={"div"}
                          sx={emphasized ? {fontSize: "1.5rem", lineHeight: "3rem", hyphens: "none"} : {}}
                          dangerouslySetInnerHTML={{
-                             __html: addIDsToHeader(
-                                 replaceEmailWidthFunction(text)
-                             ),
+                             __html: replaceEmailWidthFunction(text),
                          }}
                     />
                 </Box>
