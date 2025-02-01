@@ -3,6 +3,9 @@
 A modern, production-ready template for building web applications using Next.js 14+ with TypeScript and the App Router
 architecture.
 
+## Demo
+You can checkout a demo of the app here: https://bere197.github.io/webapp-template-nextjs-mui-ts/
+
 ## Features
 
 - **Next.js 14+**: Utilizing the latest features of Next.js including the App Router
