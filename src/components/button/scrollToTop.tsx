@@ -1,5 +1,6 @@
 "use client";
 import {MouseEvent} from 'react';
+import {motion} from "framer-motion";
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
@@ -39,7 +40,13 @@ function ScrollTop(props: Props) {
                 role="presentation"
                 sx={{position: 'fixed', bottom: 16, right: 16}}
             >
-                {children}
+                <Box component={motion.div}
+                     initial={{opacity: 0, y: 50}}
+                     animate={{opacity: trigger ? 1 : 0, y: trigger ? 0 : 50}}
+                     transition={{duration: 1, ease: "easeOut"}}
+                >
+                    {children}
+                </Box>
             </Box>
         </Fade>
     );
